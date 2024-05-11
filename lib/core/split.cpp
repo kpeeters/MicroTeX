@@ -73,14 +73,32 @@ std::pair<bool, sptr<Box>> BoxSplitter::split(const sptr<Box>& b, float width, f
       logv("[AFTER SPLIT]:\n");
       printBox(box);
     } else {
-      logv("[BOX TREE]:\n");
+      logv("[BOX TREE (NO SPLIT HAPPENED)]:\n");
       printBox(box);
     }
 #endif
     return {splitted, box};
   }
+  else {
+	  auto v = dynamic_pointer_cast<VBox>(b);
+	  if (v != nullptr) {
+		  for(sptr<Box>& child: v->_children) {
+			  float old_height = child->_height + child->_depth;
+			  auto [splitted, box] = split(child, width, lineSpace);
+			  if(splitted) {
+				  float new_height = box->_height + box->_depth; 
+				  logv(std::string("The above has split a child Box, was "+std::to_string(old_height)+", vbox is now height "+std::to_string(new_height)+".\n").c_str());
+				  child = box;
+				  v->_depth += new_height - old_height;
+				  }
+			  }
+		  }
+	  else {
+		  logv("Top level is also not a VBox.\n");
+		  }
+	  }
 #ifdef HAVE_LOG
-  logv("[BOX TREE]:\n");
+  logv("[BOX TREE (NO SPLIT ATTEMPTED)]:\n");
   printBox(b);
 #endif
   return {false, b};
