@@ -87,14 +87,18 @@ std::pair<bool, sptr<Box>> BoxSplitter::split(const sptr<Box>& b, float width, f
 			  auto [splitted, box] = split(child, width, lineSpace);
 			  if(splitted) {
 				  float new_height = box->_height + box->_depth; 
+#ifdef HAVE_LOG
 				  logv(std::string("The above has split a child Box, was "+std::to_string(old_height)+", vbox is now height "+std::to_string(new_height)+".\n").c_str());
+#endif
 				  child = box;
 				  v->_depth += new_height - old_height;
 				  }
 			  }
 		  }
 	  else {
+#ifdef HAVE_LOG
 		  logv("Top level is also not a VBox.\n");
+#endif
 		  }
 	  }
 #ifdef HAVE_LOG
