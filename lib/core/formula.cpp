@@ -6,6 +6,7 @@
 #include "atom/atom_vrow.h"
 #include "utils/string_utils.h"
 #include "utils/utf.h"
+#include <iostream>
 
 using namespace std;
 using namespace microtex;
@@ -42,6 +43,7 @@ const std::vector<sptr<MiddleAtom>>& Formula::middle() {
 
 Formula* Formula::add(const sptr<Atom>& a) {
   if (a == nullptr) return this;
+  
   auto atom = dynamic_pointer_cast<MiddleAtom>(a);
   if (atom != nullptr) _middle.push_back(atom);
   if (_root == nullptr) {

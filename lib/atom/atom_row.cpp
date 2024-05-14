@@ -9,7 +9,7 @@
 #include "core/glue.h"
 #include "env/env.h"
 #include "utils/utf.h"
-
+#include <iostream>
 using namespace std;
 using namespace microtex;
 
@@ -295,9 +295,11 @@ sptr<Box> RowAtom::createBox(Env& env) {
           hbox->addBreakPosition(hbox->size());
         } else {
           auto charAtom = dynamic_cast<CharAtom*>(raw.get());
-          if (charAtom != nullptr && isUnicodeDigit(charAtom->unicode())) {
-            hbox->addBreakPosition(hbox->size());
-          }
+			 // KP: disable automatic breaking on digits
+          // if (charAtom != nullptr && isUnicodeDigit(charAtom->unicode())) {
+			 //  std::cerr << "BOX has unicode breakpoint" << std::endl;			  
+          //   hbox->addBreakPosition(hbox->size());
+          // }
         }
       }
     }

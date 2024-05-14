@@ -43,12 +43,23 @@ static void printBox(const sptr<Box>& b, int dep, vector<bool>& lines, int max =
   if (size == 0) return;
 
   size_t limit = 0;
-  for (const auto& x : children) {
-    limit = std::max(limit, x->name().size());
-  }
+  auto hb = std::dynamic_pointer_cast<HBox>(b);
+  for (const auto& x : children) 
+	  limit = std::max(limit, x->name().size());
 
   for (size_t i = 0; i < size; i++) {
     lines[dep] = i == size - 1;
+	  if(hb) {
+		  if(std::find(hb->_breakPositions.begin(), hb->_breakPositions.end(), i)!=hb->_breakPositions.end()) {
+			  logv("br ");
+			  }
+		  else {
+			  logv("nb ");
+			  }
+		  }
+	  else {
+		  logv("nh ");
+		  }
     printBox(children[i], dep + 1, lines, limit);
   }
 }
@@ -189,12 +200,15 @@ float BoxSplitter::canBreak(stack<Position>& s, const sptr<HBox>& hbox, const fl
 }
 
 int BoxSplitter::getBreakPosition(const sptr<HBox>& hb, int i) {
+//  return i;
+
   if (hb->_breakPositions.empty()) return -1;
 
   if (hb->_breakPositions.size() == 1 && hb->_breakPositions[0] <= i) {
     return hb->_breakPositions[0];
   }
 
+  
   size_t pos = 0;
   for (; pos < hb->_breakPositions.size(); pos++) {
     if (hb->_breakPositions[pos] > i) {

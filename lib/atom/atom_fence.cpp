@@ -19,7 +19,8 @@ sptr<Box> FencedAtom::createBox(Env& env) {
     return StrutBox::empty();
   }
   if (auto r = dynamic_cast<RowAtom*>(_base.get()); r != nullptr) {
-    r->setBreakable(false);
+	  // KP: we want fenced atom rows to be breakable too
+     //    r->setBreakable(false);
   }
 
   const auto axis = env.axisHeight() * env.scale();
