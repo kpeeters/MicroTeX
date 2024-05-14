@@ -6,13 +6,14 @@
 
 #include <optional>
 #include <string>
+#include <vector>
 
 #include "unimath/font_meta.h"
 
 namespace microtex {
 
 /** Find font resources auto. Return the first found math font name. */
-std::optional<FontMeta> fontsenseLookup();
+std::optional<FontMeta> fontsenseLookup(const std::vector<std::string>& search_paths);
 
 }  // namespace microtex
 

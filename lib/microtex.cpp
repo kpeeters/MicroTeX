@@ -50,7 +50,8 @@ struct InitVisitor {
   }
 
   FontMeta operator()(const string& name) {
-    fontsenseLookup();
+    std::vector<std::string> empty;
+    fontsenseLookup(empty);
     if (!FontContext::isMathFontExists(name)) {
       throw ex_invalid_param("Math font '" + name + "' does not exists!");
     }
@@ -58,7 +59,7 @@ struct InitVisitor {
   }
 
   FontMeta operator()(const InitFontSenseAuto& sense) {
-    auto mathFont = fontsenseLookup();
+    auto mathFont = fontsenseLookup(sense.search_paths);
     if (!mathFont.has_value()) {
       throw ex_invalid_param("No math font found by font-sense.");
     }

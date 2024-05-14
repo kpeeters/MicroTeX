@@ -38,7 +38,7 @@ public:
 // Map<FileStem, <OTF File, CLM File>>
 typedef std::map<std::string, std::pair<char*, char*>> font_paths_t;
 
-font_paths_t getFontPaths();
+font_paths_t getFontPaths(const std::vector<std::string>& search_paths);
 
 std::string clmExt() {
 #ifdef HAVE_GLYPH_RENDER_PATH
@@ -70,8 +70,11 @@ std::string getDirOfExecutable() {
 }
 #endif
 
-font_paths_t getFontPaths() {
+font_paths_t getFontPaths(const std::vector<std::string>& search_paths) {
   std::queue<std::string> paths;
+  for(const std::string& search_path: search_paths)
+	  paths.push(search_path);
+  
   // checks if MICROTEX_FONTDIR exists. If it does, it pushes it to potential paths.
   char* devdir = getenv("MICROTEX_FONTDIR");
   if (devdir && *devdir) paths.push(std::string(devdir));
@@ -168,10 +171,10 @@ void fontPathsFree(const font_paths_t& font_paths) {
   }
 }
 
-std::optional<FontMeta> fontsenseLookup() {
+std::optional<FontMeta> fontsenseLookup(const std::vector<std::string>& search_paths) {
   std::optional<FontMeta> mathfont;
 
-  font_paths_t font_paths = getFontPaths();
+  font_paths_t font_paths = getFontPaths(search_paths);
 
   for (const auto& [_stem, files] : font_paths) {
     Otf* font = Otf::fromFile(files.second);

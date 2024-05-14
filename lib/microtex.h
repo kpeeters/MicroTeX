@@ -16,7 +16,10 @@
 
 namespace microtex {
 
-struct MICROTEX_EXPORT InitFontSenseAuto {};
+	class InitFontSenseAuto {
+		public:
+			std::vector<std::string> search_paths;
+	};
 
 /**
  * MicroTeX context initialization.
