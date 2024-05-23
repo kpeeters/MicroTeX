@@ -1,7 +1,6 @@
 #include "graphic/font_style.h"
 
 #include "utils/utils.h"
-#include <iostream>
 
 using namespace microtex;
 

@@ -6,7 +6,6 @@
 #include "atom/atom_vrow.h"
 #include "utils/string_utils.h"
 #include "utils/utf.h"
-#include <iostream>
 
 using namespace std;
 using namespace microtex;

@@ -4,7 +4,6 @@
 #include <pango/pangocairo.h>
 
 #include <utility>
-#include <iostream>
 
 #include "graphic_cairo.h"
 #include "utils/log.h"

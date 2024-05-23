@@ -9,7 +9,7 @@
 #include "core/glue.h"
 #include "env/env.h"
 #include "utils/utf.h"
-#include <iostream>
+
 using namespace std;
 using namespace microtex;
 
