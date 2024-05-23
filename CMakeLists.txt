@@ -39,7 +39,7 @@ if (HAVE_LOG)
 endif ()
 option(BUILD_STATIC "If build for static library" OFF)
 if (BUILD_STATIC)
-    set(_BUILD_STATIC ON)
+  set(_BUILD_STATIC ON)
 endif ()
 
 include(MicroTeXInstall.cmake)

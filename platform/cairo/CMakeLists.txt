@@ -1,6 +1,10 @@
 message(STATUS "Cross-building using GTK")
 
-add_library(microtex-cairo SHARED graphic_cairo.cpp)
+if (DEFINED _BUILD_STATIC AND _BUILD_STATIC)
+  add_library(microtex-cairo STATIC graphic_cairo.cpp)
+else ()
+  add_library(microtex-cairo SHARED graphic_cairo.cpp)
+endif ()
 
 set_target_properties(
     microtex-cairo PROPERTIES
