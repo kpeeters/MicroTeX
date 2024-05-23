@@ -82,8 +82,9 @@ public:
    */
   static FontStyle mainFontStyleOf(const std::string& name);
 
-  /** Add a font to context, returns its meta info. */
-  static FontMeta addFont(const FontSrc& src);
+  /** Add a font to context, returns its meta info. Override the family name
+	   if the optional argument is set. */
+  static FontMeta addFont(const FontSrc& src, std::string family="");
 
   /** Check if has math font */
   static bool hasMathFont();

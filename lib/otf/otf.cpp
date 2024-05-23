@@ -32,6 +32,10 @@ Otf* Otf::fromData(size_t len, const u8* data) {
   return reader.read(len, data);
 }
 
+void Otf::overrideFamily(const std::string& f) {
+  _family =f;
+}
+	
 u16 Otf::space() const {
   auto glyph = glyphOfUnicode(' ');
   if (glyph != nullptr) {

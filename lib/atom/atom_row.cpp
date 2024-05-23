@@ -297,7 +297,6 @@ sptr<Box> RowAtom::createBox(Env& env) {
           auto charAtom = dynamic_cast<CharAtom*>(raw.get());
 			 // KP: disable automatic breaking on digits
           // if (charAtom != nullptr && isUnicodeDigit(charAtom->unicode())) {
-			 //  std::cerr << "BOX has unicode breakpoint" << std::endl;			  
           //   hbox->addBreakPosition(hbox->size());
           // }
         }

@@ -91,6 +91,9 @@ public:
   /** Get the postscript family name of this font */
   inline std::string family() const { return _family; }
 
+  /** Override the family name of this font */
+  void overrideFamily(const std::string&);
+
   /** Test if this font is a math font */
   inline bool isMathFont() const { return _isMathFont; }
 

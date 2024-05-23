@@ -1,6 +1,7 @@
 #include "otf/clm.h"
 
 #include <cstring>
+#include <iostream>
 
 #include "utils/exceptions.h"
 #include "utils/string_utils.h"

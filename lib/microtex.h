@@ -118,8 +118,9 @@ public:
 	 */
   static void setPrivilegedEnvironment(bool privileged);
 
-  /** Add a font to context, returns its meta info. */
-  static FontMeta addFont(const FontSrc& src);
+  /** Add a font to context, returns its meta info. Override the family name
+	   if the optional argument is set. */
+  static FontMeta addFont(const FontSrc& src, std::string family="");
 
   /**
    * Set the default math font to show formulas, if no math font was given

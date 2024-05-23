@@ -130,8 +130,10 @@ FontStyle FontContext::mainFontStyleOf(const std::string& name) {
   return FontFamily::fontStyleOf(name);
 }
 
-FontMeta FontContext::addFont(const FontSrc& src) {
+FontMeta FontContext::addFont(const FontSrc& src, std::string family) {
   auto spec = src.loadOtf();
+  if(family!="")
+	  spec->overrideFamily(family);
   auto otf = sptrOf<OtfFont>(_lastId++, spec, src.fontFile);
   _fonts.push_back(otf);
   if (spec->isMathFont()) {

@@ -111,8 +111,8 @@ void MicroTeX::setPrivilegedEnvironment(bool privileged) {
 	_config->isPrivilegedEnvironment = privileged;
 }
 
-FontMeta MicroTeX::addFont(const FontSrc& src) {
-  auto meta = FontContext::addFont(src);
+FontMeta MicroTeX::addFont(const FontSrc& src, std::string family) {
+  auto meta = FontContext::addFont(src, family);
   if (meta.isMathFont && _config->defaultMathFontName.empty()) {
     _config->defaultMathFontName = meta.name;
   }
