@@ -6,7 +6,7 @@
 namespace microtex {
 
 macro(definecolor) {
-  color c = TRANSPARENT;
+  color c = MT_TRANSPARENT;
   const auto& cs = args[3];
   if (args[2] == "gray") {
     float f = 0;

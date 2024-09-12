@@ -20,7 +20,7 @@ static constexpr color yellow = 0xffffff00;
 static constexpr color cyan = 0xff00ffff;
 static constexpr color magenta = 0xffff00ff;
 
-static constexpr color TRANSPARENT = transparent;
+static constexpr color MT_TRANSPARENT = transparent;
 static constexpr color BLACK = black;
 static constexpr color WHITE = white;
 static constexpr color RED = red;

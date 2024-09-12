@@ -457,7 +457,7 @@ sptr<Atom> Parser::processEscape() {
     false,
     Formula("\\mathtt{{\\backslash}" + cmd + "}")._root
   );
-  return sptrOf<ColorAtom>(rm, TRANSPARENT, RED);
+  return sptrOf<ColorAtom>(rm, MT_TRANSPARENT, RED);
 }
 
 sptr<Atom> Parser::processCmd(const string& cmd, MacroInfo* mac) {

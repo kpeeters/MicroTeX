@@ -16,7 +16,7 @@ protected:
 public:
   FBoxAtom() = delete;
 
-  explicit FBoxAtom(const sptr<Atom>& base, color bg = TRANSPARENT, color line = TRANSPARENT) {
+  explicit FBoxAtom(const sptr<Atom>& base, color bg = MT_TRANSPARENT, color line = MT_TRANSPARENT) {
     if (base == nullptr)
       _base = sptrOf<RowAtom>();
     else {

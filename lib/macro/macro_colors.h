@@ -11,17 +11,17 @@ namespace microtex {
 
 inline macro(fgcolor) {
   auto a = Formula(tp, args[2])._root;
-  return sptrOf<ColorAtom>(a, TRANSPARENT, ColorAtom::getColor(args[1]));
+  return sptrOf<ColorAtom>(a, MT_TRANSPARENT, ColorAtom::getColor(args[1]));
 }
 
 inline macro(bgcolor) {
   auto a = Formula(tp, args[2])._root;
-  return sptrOf<ColorAtom>(a, ColorAtom::getColor(args[1]), TRANSPARENT);
+  return sptrOf<ColorAtom>(a, ColorAtom::getColor(args[1]), MT_TRANSPARENT);
 }
 
 inline macro(textcolor) {
   auto a = Formula(tp, args[2], false, false)._root;
-  return sptrOf<ColorAtom>(a, TRANSPARENT, ColorAtom::getColor(args[1]));
+  return sptrOf<ColorAtom>(a, MT_TRANSPARENT, ColorAtom::getColor(args[1]));
 }
 
 inline macro(colorbox) {
