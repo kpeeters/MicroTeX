@@ -30,10 +30,14 @@ target_compile_definitions(microtex-cairo PRIVATE -DMICROTEX_LIBRARY)
 target_link_libraries(
     microtex-cairo PRIVATE
     microtex
-    Fontconfig::Fontconfig
-    PkgConfig::Cairo
-    PkgConfig::Pango
-    PkgConfig::Pangocairo
+    ${Fontconfig_LIBRARIES}
+    ${Cairo_LIBRARIES}
+    ${Pango_LIBRARIES}
+    ${Pangocairo_LIBRARIES}
+    #Fontconfig::Fontconfig
+    #PkgConfig::Cairo
+    #PkgConfig::Pango
+    #PkgConfig::Pangocairo
 )
 
 microtex_install_target(microtex-cairo)

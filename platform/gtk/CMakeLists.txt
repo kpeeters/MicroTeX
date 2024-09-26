@@ -26,10 +26,14 @@ target_link_libraries(
     microtex-gtk PRIVATE
     microtex-cairo PRIVATE
     microtex
-    PkgConfig::Glib
-    PkgConfig::Gtk
-    PkgConfig::Cairo
-    PkgConfig::CairoSvg
+    ${Glib_LIBRARIES}
+    ${Gtk_LIBRARIES}
+    ${Cairo_LIBRARIES}
+    ${CairoSvg_LIBRARIES}
+    #  PkgConfig::Glib
+    #  PkgConfig::Gtk
+    #  PkgConfig::Cairo
+    #  PkgConfig::CairoSvg
 )
 
 microtex_install_target(microtex-gtk)
