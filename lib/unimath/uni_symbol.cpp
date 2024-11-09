@@ -2577,6 +2577,7 @@ const Symbol _symbols[]{
   {0x003C4, ord,     "tauup"},
   {0x000B5, ord,     "tcmu"},
   {0x02126, ord,     "tcohm"},
+  {0x0005c, ord,     "textbackslash"},
   {0x02192, rel,     "tfun"},
   {0x02234, ord,     "therefore"},
   {0x029E7, ord,     "thermod"},
