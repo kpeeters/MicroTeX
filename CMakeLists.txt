@@ -42,7 +42,7 @@ if (BUILD_STATIC)
   set(_BUILD_STATIC ON)
 endif ()
 
-include(MicroTeXInstall.cmake)
+# include(MicroTeXInstall.cmake)
 
 add_subdirectory(lib)
 
@@ -103,8 +103,8 @@ endif ()
 ################
 
 # install resources
-install(DIRECTORY res/ DESTINATION share/microtex)
+# install(DIRECTORY res/ DESTINATION share/microtex)
 
 # install prebuilt scripts
-install(FILES prebuilt/otf2clm.py DESTINATION bin)
-install(PROGRAMS prebuilt/otf2clm.sh DESTINATION bin RENAME otf2clm)
+# install(FILES prebuilt/otf2clm.py DESTINATION bin)
+# install(PROGRAMS prebuilt/otf2clm.sh DESTINATION bin RENAME otf2clm)
