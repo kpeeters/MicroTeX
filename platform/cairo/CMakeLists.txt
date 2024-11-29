@@ -40,5 +40,5 @@ target_link_libraries(
     #PkgConfig::Pangocairo
 )
 
-microtex_install_target(microtex-cairo)
-microtex_install_headers(microtex-cairo HEADERS graphic_cairo.h)
+#microtex_install_target(microtex-cairo)
+#microtex_install_headers(microtex-cairo HEADERS graphic_cairo.h)
