@@ -39,6 +39,10 @@ target_link_libraries(
     #PkgConfig::Pango
     #PkgConfig::Pangocairo
 )
+include_directories(
+  ${Cairo_INCLUDE_DIRS}
+  ${Fontconfig_INCLUDE_DIRS}
+)
 
 #microtex_install_target(microtex-cairo)
 #microtex_install_headers(microtex-cairo HEADERS graphic_cairo.h)
