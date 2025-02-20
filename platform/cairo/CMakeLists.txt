@@ -42,6 +42,8 @@ target_link_libraries(
 include_directories(
   ${Cairo_INCLUDE_DIRS}
   ${Fontconfig_INCLUDE_DIRS}
+  ${Pango_INCLUDE_DIRS}
+  ${Pangocairo_INCLUDE_DIRS}
 )
 
 #microtex_install_target(microtex-cairo)
