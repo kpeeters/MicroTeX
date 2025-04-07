@@ -29,7 +29,7 @@ sptr<Box> FencedAtom::createBox(Env& env) {
   };
 
   const auto base = _base->createBox(env);
-  center(base);
+//  center(base);
   const auto h = base->vlen();
 
   for (const auto& m : _m) {
